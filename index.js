@@ -1,64 +1,149 @@
-// console.log("Heyy..I  m using  JS");
-
-//let a = 23;
-
-//if(a > 10) {
-//    console.log("Value ofa inside block of  ="+a);
-//}
-//console.log("Value of a outside block of if ="+a);
-
-
-//const a=sum();
-//console.log("a="+a);
-
+// var a = 23;
+// if(a>10){
+//     let a =45;
+//     console.log("value of a inside block of if is: "+a);
+// }
+// console.log("value of a outside block of if is"+a);
+// function sum(a,b){
+//     return a+b;
+// }
+// function sumofsum(){
+//     console.log(sum(40,30)+sum(10,400));
+// }
+// sumofsum();
+// function info(rollNumber,name,age){
+//     return "rollNumber="+rollNumber+" Name="+name+" Age="+age;
+// }
 // function myInfo(){
-//     console.log("My Information")
-//     const info1=myInfo()
-//     console.log("My friends information")
-//     const Info2=myInfo()
-
-//}
-// function generateNumber(){
-//      return Math.floor(Math.random()*1000);
-// }    
+//     console.log("My Information");
+//     const info1=myInfo();
+//     console.log("My friends information");
+//     const Info2=myInfo();
+// }
+//  function generateNumber(){
+//     return Math.floor(Math.random()*1000);
+// }
 // const randomNumber=generateNumber();
 
-
-// function findEvenNumber(number) {
+// function findEvenNumber(number){
 
 // }
 // console.log(randomNumber)
-     
+// const sum=(a,b)=>{
+//     return a+b;
 
-// const sum = (a, b) => {
+// }
+// const result=sum(20,50);
+// function sum(a, b) {
 //     return a + b;
 // }
-// const result = sum(20, 50);
-
-// IIFE
-// (()=>{Console.log("Hey ....using IIFE")})();
-
-
-// function login(msg,error) {
-//      if(error) {
-//         console.log(error);
-//      }
-//      else {
-//         console.log(msg);
-//      }
-//  } 
- 
-//  function loginHandler(usernname,password,clbk) {
-//      const myUserame= ""akshita";
-//      const myPassword= "1234";
-//      if(usernname === myUserame && password === myPassword) {
-//         clbk(" Success",null);
-//      } else {
-//         clbk(null,"Error: Invalid username or password");
-//      }
+// function  sumWithMsg(clbk, msg) {
+//      const result = clbk(20, 40);
+//      return  msg + result;
 // }
-// loginHandler("akshita","1234",login); 
+// sumWithMsg(sum,"Hii....Sum");
+// setTimeout(()=>{
+//     console.log("One");
+//     setTimeout(()=>{
+//         console.log("Two");
+//         setTimeout(()=>{
+//         console.log("Three");
+//         setTimeout(()=>{
+//         console.log("Four");
+//         setTimeout(()=>{
+//         console.log("Five");
+//         setTimeout(()=>{
+//         console.log("Six");
+//         setTimeout(()=>{
+//         console.log("Seven");
+//         setTimeout(()=>{
+//         console.log("Eight");
+//     },1000);
+//         },1000);
+// },1000);
+//         },1000);
+//     },1000);
+// },1000);
+//     },1000);
+// },1000);
+// console.log("One")
+// console.log("Two")
+// console.log("Three")
+// function sumofsqrt(a,b){
+//     return Math.sqrt(a)+Math.sqrt(b);
+//  }
+// console.log(sumofsqrt(25,36));
+// function myname(){
+//     return "Aashi";
+// }
+// console.log(myname() +" "+ sumofsqrt(4,3));
 
-console.log("One")
-setTimeout(()=>{console.log("Two")},1000);
-console.log("Three")
+
+
+//promise in js
+
+//const myPromise=new Promise((resolve,reject)=>{
+    //let use4rname="Aashi";
+    //let Password="123";
+    //if(username=="Aashi"&& password=="123"){
+        
+// console.log("hiii")
+// let a=23;
+// console.log("a="+a);
+const container = document.getElementById("container");
+
+console.log(container);
+
+const button = document.getElementById("btn");
+console.log(button);
+
+const h2 = document.getElementById("data");
+const loader = document.getElementById("loader");
+
+async function fetchData() {
+    try {
+        loader.innerHTML = "Fetching data..";
+
+        const serverData = await fetch("https://fakestoreapi.com/products");
+
+        const JSONData = await serverData.json();
+
+        let table = `<table border="1">
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+
+            ${
+                JSONData.map((ele) => `
+                    <tr>
+                        <td>
+                            <img src="${ele.image}" height="200px" width="200px">
+                        </td>
+
+                        <td>${ele.title}</td>
+
+                        <td>${ele.price}</td>
+
+                        <td>${ele.description}</td>
+                    </tr>
+                `).join("")
+            }
+
+        </table>`;
+
+        container.innerHTML = table;
+
+    } catch (e) {
+        console.log("Error is: " + e);
+
+        loader.innerHTML = "Error is: " + e;
+
+    } finally {
+        loader.innerHTML = "";
+    }
+}
+
+button.addEventListener("click", fetchData);
