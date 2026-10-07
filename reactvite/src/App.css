@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eeeeee;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.card {
+  width: 430px;
+  min-height: 650px;
+  padding: 28px 25px;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.08), transparent 25%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,.07), transparent 30%),
+    #1260a9;
+  color: white;
+  box-shadow: 0 12px 30px rgba(0,0,0,.3);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px solid rgba(255,255,255,.25);
+  padding-bottom: 8px;
+}
+
+.imdb {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.year {
+  font-size: 46px;
+  font-weight: 800;
+  border: 3px solid white;
+  padding: 0 8px;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 29px;
+  margin-top: 18px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 2px;
+  border-bottom: 3px solid white;
+  width: fit-content;
+  padding-bottom: 3px;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 25px;
+  row-gap: 15px;
+  margin-top: 22px;
+}
+
+.movie {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 82px;
+}
+
+.circle {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #dceeff, #477fb4);
+  border: 3px solid #b9e1ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,.25);
+}
+
+.circle span {
+  font-size: 20px;
+  font-weight: 900;
+  color: #123d66;
+}
+
+.movie-info {
+  min-width: 0;
+}
+
+.rank {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.movie-name {
+  font-size: 12px;
+  line-height: 1.15;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.bottom-text {
+  text-align: center;
+  font-size: 9px;
+  font-weight: bold;
+  margin-top: 22px;
+  opacity: .8;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .page {
+    padding: 15px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 430px;
+  }
+
+  .movie-grid {
+    column-gap: 12px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .imdb {
+    font-size: 45px;
+  }
+
+  .year {
+    font-size: 39px;
+  }
+}
